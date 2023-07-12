@@ -11,3 +11,8 @@ func (app *Config) refreshTickerContent() {
 	app.PriceImgContainer.Objects = []fyne.CanvasObject{img}
 	app.PriceImgContainer.Refresh()
 }
+
+func (app *Config) refreshHoldingsTable() {
+	app.Holdings = app.getHoldingsSlice()
+	app.HoldingsTable.Refresh()
+}

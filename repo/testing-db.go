@@ -17,6 +17,16 @@ func (repo *TestRepo) InsertHolding(h Holding) (*Holding, error) {
 
 func (repo *TestRepo) AllHoldings() ([]Holding, error) {
 	var all []Holding
+	h := Holding{
+		Units: 5,
+		Value: 2500,
+	}
+	all = append(all, h)
+	h2 := Holding{
+		Units: 10,
+		Value: 500,
+	}
+	all = append(all, h2)
 	return all, nil
 }
 

@@ -3,7 +3,6 @@ package main
 import (
 	"time"
 
-	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
 )
@@ -27,9 +26,10 @@ func (app *Config) makeUI() {
 
 	// get app tabs
 	priceTabContent := app.pricesTab()
+	holdingsTabContent := app.holdingsTab()
 	tabs := container.NewAppTabs(
 		container.NewTabItemWithIcon("Prices", theme.HomeIcon(), priceTabContent), // change default icons??
-		container.NewTabItemWithIcon("Holdings", theme.InfoIcon(), canvas.NewText("Holdings Info Here", nil)),
+		container.NewTabItemWithIcon("Holdings", theme.InfoIcon(), holdingsTabContent),
 	)
 	tabs.SetTabLocation(container.TabLocationTop)
 

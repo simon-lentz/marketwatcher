@@ -22,6 +22,10 @@ type Config struct {
 	TickerContainer   *fyne.Container // update with refresh button
 	Toolbar           *widget.Toolbar
 	PriceImgContainer *fyne.Container // update with refresh button
+	Holdings          [][]interface{}
+	HoldingsTable     *widget.Table
+	HoldingUnits      *widget.Entry
+	HoldingValue      *widget.Entry
 	HTTPClient        *http.Client
 }
 
@@ -45,6 +49,7 @@ func main() {
 
 	// create a db repo
 	myApp.initDB(db)
+	fyneApp.Preferences().StringWithFallback("Currency", "USD")
 
 	// create and size a fyne window
 	myApp.MainWindow = fyneApp.NewWindow("MarketWatcher")
