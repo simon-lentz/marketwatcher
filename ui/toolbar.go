@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"strconv"
@@ -13,11 +13,11 @@ import (
 
 var currency = "USD"
 
-func (app *Config) getToolbar() *widget.Toolbar {
+func (app *Config) GetToolbar() *widget.Toolbar {
 	toolbar := widget.NewToolbar( // We don't have to pass fyne.Window to the func because it is accessed by the new toolbar funcs
 		widget.NewToolbarSpacer(),
 		widget.NewToolbarAction(theme.DocumentCreateIcon(), func() {
-			app.addHoldingsDialog()
+			app.AddHoldingsDialog()
 		}),
 		widget.NewToolbarAction(theme.ViewRefreshIcon(), func() {
 			app.refreshTickerContent()
@@ -32,7 +32,7 @@ func (app *Config) getToolbar() *widget.Toolbar {
 	return toolbar
 }
 
-func (app *Config) addHoldingsDialog() dialog.Dialog {
+func (app *Config) AddHoldingsDialog() dialog.Dialog {
 	addUnitsEntry := widget.NewEntry()
 	addValueEntry := widget.NewEntry()
 

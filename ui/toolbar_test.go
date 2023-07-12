@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 )
 
 func TestApp_getToolBar(t *testing.T) {
-	tb := testApp.getToolbar()
+	tb := testApp.GetToolbar()
 
 	if len(tb.Items) == 2 { // change to != for testing with real values
 		t.Error("Toolbar construction failed")
@@ -15,7 +15,7 @@ func TestApp_getToolBar(t *testing.T) {
 }
 
 func TestApp_addHoldingsDialog(t *testing.T) {
-	testApp.addHoldingsDialog()
+	testApp.AddHoldingsDialog()
 
 	test.Type(testApp.HoldingUnits, "1")
 	test.Type(testApp.HoldingValue, "5")

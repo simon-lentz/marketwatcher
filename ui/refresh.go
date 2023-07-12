@@ -1,9 +1,9 @@
-package main
+package ui
 
 import "fyne.io/fyne/v2"
 
 func (app *Config) refreshTickerContent() {
-	symbol, currentPrice := app.getTickerText()
+	symbol, currentPrice := app.GetTickerText()
 	app.TickerContainer.Objects = []fyne.CanvasObject{symbol, currentPrice}
 	app.TickerContainer.Refresh()
 
@@ -13,6 +13,6 @@ func (app *Config) refreshTickerContent() {
 }
 
 func (app *Config) refreshHoldingsTable() {
-	app.Holdings = app.getHoldingsSlice()
+	app.Holdings = app.GetHoldingsSlice()
 	app.HoldingsTable.Refresh()
 }

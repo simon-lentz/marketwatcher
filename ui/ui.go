@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"time"
@@ -7,9 +7,9 @@ import (
 	"fyne.io/fyne/v2/theme"
 )
 
-func (app *Config) makeUI() {
+func (app *Config) MakeUI() {
 	// get ticker price
-	currentPrice, symbol := app.getTickerText()
+	currentPrice, symbol := app.GetTickerText()
 
 	// put price information in container
 	tickerContent := container.NewGridWithColumns(
@@ -21,7 +21,7 @@ func (app *Config) makeUI() {
 	app.TickerContainer = tickerContent
 
 	// get toolbar
-	toolbar := app.getToolbar()
+	toolbar := app.GetToolbar()
 	app.Toolbar = toolbar
 
 	// get app tabs

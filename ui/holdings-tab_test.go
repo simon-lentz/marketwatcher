@@ -1,9 +1,9 @@
-package main
+package ui
 
 import "testing"
 
 func TestConfig_getHoldings(t *testing.T) {
-	holdings, err := testApp.currentHoldings()
+	holdings, err := testApp.CurrentHoldings()
 	if err != nil {
 		t.Error("failed to retrieve current holding from db:", err)
 	}
@@ -13,7 +13,7 @@ func TestConfig_getHoldings(t *testing.T) {
 }
 
 func TestConfig_getHoldingSlice(t *testing.T) {
-	slice := testApp.getHoldingsSlice()
+	slice := testApp.GetHoldingsSlice()
 	if len(slice) != 3 {
 		t.Error("wrong number of rows returned")
 	}

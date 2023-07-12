@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"database/sql"
@@ -8,7 +8,7 @@ import (
 	"github.com/simon-lentz/marketwatcher/repo"
 )
 
-func (app *Config) connectDB() (*sql.DB, error) {
+func (app *Config) ConnectDB() (*sql.DB, error) {
 	path := ""
 
 	if os.Getenv("DB_PATH") != "" {
@@ -27,7 +27,7 @@ func (app *Config) connectDB() (*sql.DB, error) {
 	return db, nil
 }
 
-func (app *Config) initDB(db *sql.DB) {
+func (app *Config) InitDB(db *sql.DB) {
 	app.DB = repo.NewSQLiteRepo(db)
 
 	if err := app.DB.Migrate(); err != nil {

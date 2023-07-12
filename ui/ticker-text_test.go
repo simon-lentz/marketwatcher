@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"log"
@@ -6,8 +6,7 @@ import (
 )
 
 func TestApp_getTickerText(t *testing.T) {
-
-	currentPrice, _ := testApp.getTickerText()
+	currentPrice, _ := testApp.GetTickerText()
 	log.Println(currentPrice.Text)
 	if currentPrice.Text == "Current Price: $0.0000" { // fix tests with real values when the API issues are figured out
 		t.Error("current price does not match expected value")

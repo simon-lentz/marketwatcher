@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"fyne.io/fyne/v2/canvas"
 )
 
-func (app *Config) getTickerText() (*canvas.Text, *canvas.Text) {
+func (app *Config) GetTickerText() (*canvas.Text, *canvas.Text) {
 	var s Stock
 	var currentPrice, symbol *canvas.Text
 

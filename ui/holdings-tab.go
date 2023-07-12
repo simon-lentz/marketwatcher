@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"fmt"
@@ -13,8 +13,8 @@ import (
 )
 
 func (app *Config) holdingsTab() *fyne.Container {
-	app.Holdings = app.getHoldingsSlice()
-	app.HoldingsTable = app.getHoldingsTable()
+	app.Holdings = app.GetHoldingsSlice()
+	app.HoldingsTable = app.GetHoldingsTable()
 
 	holdingsCtr := container.NewBorder(
 		nil,
@@ -28,7 +28,7 @@ func (app *Config) holdingsTab() *fyne.Container {
 	return holdingsCtr
 }
 
-func (app *Config) getHoldingsTable() *widget.Table {
+func (app *Config) GetHoldingsTable() *widget.Table {
 	table := widget.NewTable(
 		func() (int, int) { // get table dimensions
 			return len(app.Holdings), len(app.Holdings[0])
@@ -72,9 +72,9 @@ func (app *Config) getHoldingsTable() *widget.Table {
 }
 
 // build the data structure to contain all the db entries
-func (app *Config) getHoldingsSlice() [][]interface{} {
+func (app *Config) GetHoldingsSlice() [][]interface{} {
 	var slice [][]interface{}
-	holdings, err := app.currentHoldings()
+	holdings, err := app.CurrentHoldings()
 	if err != nil {
 		app.ErrorLog.Println(err)
 	}
@@ -95,7 +95,7 @@ func (app *Config) getHoldingsSlice() [][]interface{} {
 }
 
 // accesses the local db
-func (app *Config) currentHoldings() ([]repo.Holding, error) {
+func (app *Config) CurrentHoldings() ([]repo.Holding, error) {
 	holdings, err := app.DB.AllHoldings()
 	if err != nil {
 		return nil, err

@@ -1,5 +1,5 @@
 // https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=292F1EEKKBF9AVOE
-package main
+package ui
 
 import (
 	"encoding/json"
