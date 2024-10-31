@@ -1,4 +1,3 @@
-// https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=292F1EEKKBF9AVOE
 package ui
 
 import (
